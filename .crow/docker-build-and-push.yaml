@@ -10,6 +10,7 @@ steps:
     settings:
       repo: ryuupendragon/icons-test
       dockerfile: build/Dockerfile
+      context: ./build
       platforms: linux/amd64,linux/arm64/v8
       tag: 2.1.0,latest
       username:
