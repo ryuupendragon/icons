@@ -1,0 +1,19 @@
+when:
+  - event: push
+    branch: main
+    path: 'build/*'
+  - event: manual
+
+steps:
+  - name: build-and-push
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      repo: ryuupendragon/icons-test
+      dockerfile: build/Dockerfile
+      platforms: linux/amd64,linux/arm64/v8
+      tag: 2.1.0,latest
+      username:
+        from_secret: DOCKERHUB_USERNAME
+      password:
+        from_secret: DOCKERHUB_TOKEN
+      # dry-run: true
